@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rivals - Medieval Western Board Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./Screenshot 2025-01-29 203805.png" type="image/x-icon">
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-wine shadow-md">
+        <div class="container mx-auto px-4 nav-container">
+            <div class="flex justify-between items-center w-full">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-2">
+                    <img src="./dika studios main logo.png" alt="The Rivals Logo" class="logo-img">
+                    <span class="text-xl font-bold text-white font-title hidden md:block">The Rivals</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-gray-200 transition duration-300">Home</a>
+                    <a href="#rulebook" id="rulebookBtn" class="text-white hover:text-gray-200 transition duration-300">Rule Book</a>
+                    <a href="#about" id="aboutBtn" class="text-white hover:text-gray-200 transition duration-300">About Us</a>
+                    <a href="#contact" class="text-white hover:text-gray-200 transition duration-300">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden">
+        <div class="bg-wine h-full w-4/5 max-w-sm p-6 overflow-y-auto ml-auto text-white">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" class="text-2xl font-bold text-white font-title">The Rivals</a>
+                <button id="closeMobileMenu" class="text-white">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <nav class="space-y-4 mb-8">
+                <a href="#home" class="block py-2 text-lg font-medium hover:text-gray-200">Home</a>
+                <a href="#rulebook" id="mobileRulebookBtn" class="block py-2 text-lg font-medium hover:text-gray-200">Rule Book</a>
+                <a href="#about" id="mobileAboutBtn" class="block py-2 text-lg font-medium hover:text-gray-200">About Us</a>
+                <a href="#contact" class="block py-2 text-lg font-medium hover:text-gray-200">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section with Full-Screen Cover Image -->
+    <section id="home" class="hero-section">
+        <!-- Background Image -->
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Content -->
+        <div class="hero-content container mx-auto px-4 flex items-center">
+            <div class="max-w-2xl text-white text-center mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight font-title">The Rivals</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">A medieval western strategy board game of conquest and strategy</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+                    <a href="#rulebook" id="heroRulebookBtn" class="btn-wine px-8 py-3 rounded-full font-semibold text-center transition duration-300 border-2 border-wine">
+                        View Rule Book
+                    </a>
+                    <a href="#about" id="heroAboutBtn" class="btn-white px-8 py-3 rounded-full font-semibold text-center transition duration-300 border-2 border-white">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <a href="#about" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-3xl"></i>
+        </a>
+    </section>
+
+    <!-- Rulebook Modal -->
+    <div id="rulebookModal" class="rulebook-page">
+        <audio id="westernSound" class="western-sound" controls>
+            <source src="./341807__drfx__some-background-i-made-for-my-game-ambient-music.mp3" type="audio/mpeg">
+        </audio>
+        <button id="closeRulebook" class="fixed top-4 right-4 text-white text-4xl z-50">&times;</button>
+        <div class="rulebook-content old-paper">
+            <h2 class="text-3xl font-bold mb-6 text-center text-wine font-title">Rule Book</h2>
+            <div class="border-b-2 border-wine mb-6"></div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="english">English</button>
+                <button class="language-btn" data-lang="arabic">العربية</button>
+            </div>
+            
+            <!-- English Content -->
+            <div id="english-content" class="language-content active">
+                <h3 class="text-xl font-bold mb-4 text-wine">Game Overview</h3>
+                <p class="mb-6">The Rivals is a strategic board game set in a kingdom called Hizzine where players compete to have the throne through conquest, diplomacy, and resource management.</p>
+                
+                <img src="./english one page_.jpg"
+                    alt="The Rivals Game Board"
+                    class="rulebook-image openable-image">
+                
+            </div>
+            
+            <!-- Arabic Content -->
+            <div id="arabic-content" class="language-content" dir="rtl">
+                <h3 class="text-xl font-bold mb-4 text-wine">نظرة عامة على اللعبة</h3>
+                <p class="mb-6">المنافسون هي لعبة لوحية استراتيجية تدور أحداثها في مملكة تُدعى حزّين، حيث يتنافس اللاعبون على اعتلاء العرش من خلال الغزو، والدبلوماسية، وإدارة الموارد.</p>
+                
+                <img src="./arabic one page_.jpg"
+                    alt="لوحة لعبة المنافسين"
+                    class="rulebook-image openable-image">
+                
+            </div>
+            
+            <div class="text-center mt-8">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="about-page">
+        <button id="closeAbout" class="fixed top-4 right-4 text-white text-4xl z-50">&times;</button>
+        <div class="about-content old-paper">
+            <h2 class="text-3xl font-bold mb-6 text-center text-wine font-title">About Dika Studios</h2>
+            <div class="border-b-2 border-wine mb-6"></div>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="language-btn active" data-lang="english-about">English</button>
+                <button class="language-btn" data-lang="arabic-about">العربية</button>
+            </div>
+            
+            <!-- English Content -->
+            <div id="english-about-content" class="language-content active">
+                <div class="text-center mb-8">
+                    <img src="./dika studios main logo.png"
+                        alt="Dika Studios Logo"
+                        class="about-image openable-image">
+                </div>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">Our Mission</h3>
+                <p class="mb-6">At Dika Studios, we create immersive board games that transport players to exciting worlds of adventure and strategy. Our mission is to craft high-quality, original games that bring people together for unforgettable gaming experiences.</p>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">Our Story</h3>
+                <p class="mb-6">Founded in 2024 by a group of passionate gamers and designers, Dika Studios began with a simple idea: to create board games that combine deep strategy with accessible gameplay. Starting from a small workshop, we've grown into a recognized name in the tabletop gaming industry.</p>
+                
+                <img src=""
+                    alt="Game Design Process"
+                    class="about-image openable-image">
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">Our Games</h3>
+                <p class="mb-4">We specialize in creating original board games that offer:</p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Strategic Depth:</strong> Games with multiple paths to victory and meaningful decisions</li>
+                    <li><strong>Immersive Themes:</strong> From medieval westerns to futuristic space adventures</li>
+                    <li><strong>High-Quality Components:</strong> Premium materials and beautiful artwork</li>
+                    <li><strong>Scalable Complexity:</strong> Games that appeal to both casual and hardcore gamers</li>
+                </ul>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">Our Process</h3>
+                <p class="mb-6">Every Dika Studios game goes through an extensive development process:</p>
+                <ol class="list-decimal pl-6 mb-6 space-y-2">
+                    <li><strong>Concept Development:</strong> Brainstorming unique game mechanics and themes</li>
+                    <li><strong>Prototyping:</strong> Creating physical prototypes for testing</li>
+                    <li><strong>Playtesting:</strong> Hundreds of hours of gameplay with diverse groups</li>
+                    <li><strong>Manufacturing:</strong> Partnering with high-quality manufacturers</li>
+                    <li><strong>Community Engagement:</strong> Listening to player feedback for continuous improvement</li>
+                </ol>
+                
+                <img src="./The Board Game.jpg"
+                    alt="Game Manufacturing"
+                    class="about-image openable-image">
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">Our Team</h3>
+                <p class="mb-6">Dika Studios is powered by a diverse team of game designers, artists, writers, and gaming enthusiasts. We come from different backgrounds but share a common passion: creating games that spark imagination and friendly competition.</p>
+            </div>
+            
+            <!-- Arabic Content -->
+            <div id="arabic-about-content" class="language-content" dir="rtl">
+                <div class="text-center mb-8">
+                    <img src="./dika studios main logo.png"
+                        alt="شعار ديكا ستوديوز"
+                        class="about-image openable-image">
+                </div>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">مهمتنا</h3>
+                <p class="mb-6">في Dika Studios، نصنع ألعاب مليئة بالمغامرات التي تنقل اللاعبين إلى عوالم مثيرة من المغامرة والاستراتيجية. مهمتنا هي صنع ألعاب أصلية عالية الجودة تجمع الناس معًا لتجارب لعب لا تُنسى.</p>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">قصتنا</h3>
+                <p class="mb-6">تأسست Dika Studios في عام 2024 من قبل مجموعة من عشاق الألعاب والمصممين المتحمسين، بدأت بفكرة بسيطة: إنشاء ألعاب تجمع بين الاستراتيجية العميقة واللعب السهل. بدءًا من ورشة عمل صغيرة، نمينا لتصبح اسمًا معروفًا في صناعة الألعاب .</p>
+                
+                <img src="https://images.unsplash.com/photo-1608889825205-eebdb5fc4f2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="عملية تصميم اللعبة"
+                    class="about-image openable-image">
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">ألعابنا</h3>
+                <p class="mb-4">نتخصص في إنشاء العاب الأصلية التي تقدم:</p>
+                <ul class="list-disc pr-6 mb-6 space-y-2" style="direction: rtl;">
+                    <li><strong>عمق استراتيجي:</strong> ألعاب ذات مسارات متعددة للفوز وقرارات ذات معنى</li>
+                    <li><strong>مواضيع غامرة:</strong> من الغرب في العصور الوسطى إلى مغامرات الفضاء المستقبلية</li>
+                    <li><strong>مكونات عالية الجودة:</strong> مواد ممتازة وأعمال فنية جميلة</li>
+                    <li><strong>تعقيد قابل للتعديل:</strong> ألعاب تناسب كل من اللاعبين العاديين والمحترفين</li>
+                </ul>
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">عملنا</h3>
+                <p class="mb-6">تمر كل لعبة من Dika Studios بعملية تطوير مكثفة:</p>
+                <ol class="list-decimal pr-6 mb-6 space-y-2" style="direction: rtl;">
+                    <li><strong>تطوير المفهوم:</strong> العصف الذهني لميكانيكيات اللعبة الفريدة والمواضيم</li>
+                    <li><strong>النماذج الأولية:</strong> إنشاء نماذج مادية للاختبار</li>
+                    <li><strong>اختبار اللعب:</strong> مئات الساعات من اللعب مع مجموعات متنوعة</li>
+                    <li><strong>التصنيع:</strong> التعاون مع مصنعين عاليي الجودة</li>
+                    <li><strong>التفاعل مع المجتمع:</strong> الاستماع إلى ملاحظات اللاعبين للتحسين المستمر</li>
+                </ol>
+                
+                <img src="./The Board Game.jpg"
+                    alt="تصنيع اللعبة"
+                    class="about-image openable-image">
+                
+                <h3 class="text-xl font-bold mb-4 text-wine">فريقنا</h3>
+                <p class="mb-6">Dika Studios مدعومة بفريق متنوع من مصممي الألعاب والفنانين والكتاب وعشاق الألعاب. نأتي من خلفيات مختلفة ولكننا نتشارك شغفًا مشتركًا: إنشاء ألعاب تشعل الخيال والمنافسة الودية.</p>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#contact" id="contactFromAbout" class="btn-wine px-6 py-2 rounded-full font-semibold transition duration-300 border-2 border-wine inline-block">
+                    Contact Us/تواصل معنا
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal with Zoom Controls -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-container">
+            <img class="modal-content" id="modalImage">
+            <div class="zoom-controls">
+                <div class="zoom-btn" id="zoomIn">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="zoom-btn" id="zoomOut">
+                    <i class="fas fa-minus"></i>
+                </div>
+                <div class="zoom-btn" id="resetZoom">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+     <section id="contact" class="py-20 bg-wine text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-title">Contact Us/تواصل معنا</h2>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h3 class="text-xl font-bold mb-6">Get In Touch</h3>
+                    <p class="text-lg opacity-90 mb-8">Have questions about The Rivals? Want to stock our game in your store? Contact us using the form or information below.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-indigo-200 mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Our Headquarters</h4>
+                                <p class="opacity-90">Lebanon-Bekaa-Baalbeck</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-indigo-200 mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Phone Number</h4>
+                                <p class="opacity-90">+961 81652310</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-indigo-200 mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Email Address</h4>
+                                <p class="opacity-90">dikastudios@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <form id="contactForm" action="https://formsubmit.co/dikastudios@gmail.com" method="POST" class="bg-white rounded-lg shadow-lg p-8 text-gray-800">
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission from The Rivals Website">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div id="formMessage" class="form-message"></div>
+                        
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name/اسمك</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address/عنوان البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject/موضوع</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine" required>
+                                <option value="">Select a subject/حدد موضوعاً</option>
+                                <option value="purchase">Purchasing the game/شراء اللعبة</option>
+                                <option value="wholesale">Wholesale inquiries/استفسارات الجملة</option>
+                                <option value="rules">Rules questions/ أسئلة القواعد في اللعبة</option>
+                                <option value="other">Other/آخر</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message/رسالة</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wine" required></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitButton" class="w-full btn-wine py-3 px-6 rounded-lg font-semibold transition duration-300 border-2 border-wine flex items-center justify-center">
+                            <span id="submitText">Send Message/إرسال رسالة</span>
+                            <div id="loadingSpinner" class="loading-spinner ml-2"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#home" class="flex items-center space-x-2">
+                        <img src="./dika studios horizontal version.png" alt="The Rivals Logo" class="logo-img">
+                        <span class="text-xl font-bold text-indigo-400 font-title">The Rivals</span>
+                    </a>
+                    <p class="text-gray-400 mt-2">A medieval western board game adventure</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dikastudios_gameverse?igsh=ZHYzd3Q1cTJ1OHJk" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#home" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-boardgamegeek text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Rivals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
