@@ -390,11 +390,11 @@
                     
                     if (response.ok && data.success === "true") {
                         // Success message
-                        formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                        formMessage.textContent = 'Thank you! Your message has been sent successfully./شكراً لك! تم إرسال رسالتك بنجاح.';
                         formMessage.className = 'form-message success';
                         contactForm.reset();
                     } else {
-                        throw new Error('Form submission failed');
+                        throw new Error('Form submission failed/فشل في إرسال النموذج');
                     }
                 } catch (error) {
                     // Fallback to mailto if FormSubmit fails
@@ -409,12 +409,12 @@
                     const mailtoLink = `mailto:dikastudios@gmail.com?subject=Contact Form: ${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     window.location.href = mailtoLink;
                     
-                    formMessage.textContent = 'Your message is being prepared in your email client. Please send it to complete the process.';
+                    formMessage.textContent = 'Your message is being prepared in your email client. Please send it to complete the process./يتم تحضير رسالتك في برنامج البريد الإلكتروني الخاص بك. يرجى إرسالها لإكمال العملية.';
                     formMessage.className = 'form-message success';
                     contactForm.reset();
                 }
             } catch (error) {
-                formMessage.textContent = 'There was an error sending your message. Please try again later or email us directly at dikastudios@gmail.com.';
+                formMessage.textContent = 'There was an error sending your message. Please try again later or email us directly at dikastudios@gmail.com./حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقًا أو مراسلتنا مباشرة عبر البريد الإلكتروني: dikastudios@gmail.com.';
                 formMessage.className = 'form-message error';
             } finally {
                 // Reset button state
