@@ -356,7 +356,6 @@
             modalImg.addEventListener('touchend', function() {
                 initialDistance = null;
             });
-
             // Contact Form Submission
             const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
